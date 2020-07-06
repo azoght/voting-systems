@@ -41,7 +41,22 @@ class VoteCount:
         self.registry = br
 
     def plurality(self):
-        pass
+        vee = []
+        for c in range(len(self.registry.br[0].candidates)):
+            vee.append(0)
+        count_register = Ballot(c=self.registry.br[0].candidates,v=vee)
+        for b in self.registry.br:
+            for r in b:
+                if b.votes[r] == 1:
+                    count_register.votes[r] += 1
+
+        winner = 0
+
+        for c in count_register.votes:
+            if count_register.votes[c] > count_register.votes[winner]:
+                winner = c
+
+        print("Winner is",count_register.candidates[winner])
 
     def instantrunoff(self):
         pass
