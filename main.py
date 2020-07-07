@@ -1,3 +1,4 @@
+import random
 
 class Ballot:
 
@@ -33,6 +34,19 @@ def hasMajority(b: Ballot) -> bool:
     if b.votes[biggest] >= majThreshold:
         return True
     return False
+
+def containsBoth(l: [],a1,a2) -> bool:
+    count1 = 0
+    count2 = 0
+    for i in l:
+        if l[i] == a1:
+            count1 += 1
+        if l[i] == a2:
+            count2 += 1
+    if count1 > 0 and count2 > 0:
+        return True
+    return False
+
 
 class BallotRegistry:
 
@@ -117,4 +131,25 @@ class VoteCount:
         print("Winner is", count_register.candidates[winner])
 
     def condorcet(self):
-        pass
+        count_register = self.__makecountregister__()
+        roundList = []
+        r = []
+        fillingList = True
+        co = False
+        lengthofRoundList = 0.5 * (len(count_register.candidates) ** 2) - 0.5 * len(count_register.candidates)
+        while fillingList:
+            r1 = random.uniform(0,len(count_register.candidates) - 1)
+            r2 = random.uniform(0,len(count_register.candidates) - 1)
+            if r1 != r2:
+                for ro in roundList:
+                    if containsBoth(ro, r1, r2):
+                        co = True
+                        break
+                if co == True:
+                    continue
+                r.append(r1)
+                r.append(r2)
+                roundList.append(r)
+            if len(roundList) == lengthofRoundList:
+                fillingList = False
+
