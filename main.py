@@ -47,6 +47,9 @@ def containsBoth(l: [],a1,a2) -> bool:
         return True
     return False
 
+def isHigherThan(b: Ballot, b1: int, b2: int) -> bool:
+    return b.votes[b1] < b.votes[b2]
+
 
 class BallotRegistry:
 
@@ -126,9 +129,9 @@ class VoteCount:
         winner = 0
         for c in count_register.votes:
             if count_register.votes[c] > count_register.votes[winner]:
-                winner = c
+                winner = count_register.candidates[winner]
 
-        print("Winner is", count_register.candidates[winner])
+        print("Winner is", winner)
 
     def condorcet(self):
         count_register = self.__makecountregister__()
@@ -152,4 +155,37 @@ class VoteCount:
                 roundList.append(r)
             if len(roundList) == lengthofRoundList:
                 fillingList = False
+
+            for ro in roundList:
+                c1 = 0
+                c2 = 0
+                for b in self.registry.br:
+                    if isHigherThan(b, ro[0], ro[1]):
+                        c1 += 1
+                    else:
+                        c2 += 1
+                if c1 > c2:
+                    count_register.votes[ro[0]] += 1
+                if c2 > c1:
+                    count_register.votes[ro[1]] += 1
+
+            biggest_num = 0
+            for v in count_register.votes:
+                if count_register.votes[v] > biggest_num:
+                    biggest_num = count_register.votes[v]
+
+            count = 0
+            for v in count_register.votes:
+                if count_register.votes[v] == biggest_num:
+                    count += 1
+
+            if count > 1:
+                print("It's a tie!")
+            else:
+                winner = ""
+                for c in count_register.candidates:
+                    if count_register.votes[c] == biggest_num:
+                        winner = count_register.candidates[c]
+
+                print("Winner is",winner)
 
