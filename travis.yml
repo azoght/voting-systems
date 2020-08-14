@@ -1,0 +1,18 @@
+sudo: false
+
+language:
+  - python
+
+python:
+  - 3.8
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - pycodestyle votingsystems
+  - pytest --verbose --capture=no votingsystems
+  - pip install .
+
+notifications:
+  email: false
