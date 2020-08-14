@@ -32,14 +32,14 @@ config = [2,3,1]
 
 b = Ballot(candidates,config)
 
-for i in range(25):
+for i in range(26):
     r.addBallot(b)
 
 config = [3,1,2]
 
 b = Ballot(candidates,config)
 
-for i in range(29):
+for i in range(28):
     r.addBallot(b)
 
 config = [3,2,1]
@@ -69,7 +69,6 @@ configs = []
 registry = BallotRegistry()
 for i in range(100):
     configs.append(randomBallotVoteConfiguration([1,2,3,4,5]))
-    print(configs[i])
 
 for c in configs:
     registry.addBallot(Ballot(options,c))
