@@ -12,7 +12,6 @@ install:
 script:
   - pycodestyle votingsystems
   - pytest --verbose --capture=no votingsystems
-  - pip install .
 
 notifications:
   email: false
