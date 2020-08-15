@@ -1,9 +1,5 @@
 #Voting Systems
 
-
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
-
-
 Simulates four vote count systems that can used with ranked ballots:
 1. Plurality/Majority
 2. Instant Runoff (IRV/RCV)
