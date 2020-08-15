@@ -10,7 +10,6 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - pycodestyle votingsystems
   - pytest --verbose --capture=no votingsystems
 
 notifications:
