@@ -1,8 +1,9 @@
 #Voting Systems
+
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 
-Simulates ~~four~~ 4 vote count systems that can used with ranked ballots:
+Simulates four vote count systems that can used with ranked ballots:
 1. Plurality/Majority
 2. Instant Runoff (IRV/RCV)
 3. Borda Count
@@ -11,21 +12,49 @@ Simulates ~~four~~ 4 vote count systems that can used with ranked ballots:
 You can learn more about these four voting systems here: [**PBS Infinite Series: Voting Systems and the Condorect Paradox**](https://www.youtube.com/watch?v=HoAnYQZrNrQ)
 ![](https://image.pbs.org/video-assets/7GRiDXk-asset-mezzanine-16x9-Ju2FaRu.jpg.focalcrop.1200x630.50.10.jpg)
 
----
+##How each voting system works
+
+**Plurality:**
+* Most commonly used system, especially for federal elections, and isn't generally ranked-ballot
+* Counts the number of times each candidate is ranked first within the ballot registry
+* Whichever candidate is ranked first the most wins
+* Not the best voting system, in my opinion
+
+**Instant Runoff:**
+* This system works in rounds, eliminating the candidate with the lowest count
+* Round _n_: times each non-eliminated candidate is ranked _n_ are counted
+* If there is a majority and _n_ is greater than 1, the candidate with the highest count wins
+* Otherwise, the last candidate standing wins
+
+**Borda Count:**
+* Ranked-ballot voting system developed by French mathematician Jean-Charles de Borda
+* A weight is assigned in reverse proportion to each rank
+* The candidate with the highest weighted value wins
+* There are multiple variations, but the simplest one is the one I've coded
+
+**Condorcet:**
+* Puts each candidate against one another
+* The winner of each round is whichever candidate is ranked higher than the other most times
+* The candidate who won the most rounds wins
+* Can result in a tie between all candidates
 
 # Getting Started
 
 > See travis.yml for how to get started
 
 ## Setup
-[![PyPI pyversions](https://img.shields.io/pypi/pyversions/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/) [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama)
+![](https://img.shields.io/badge/python-3.8-blue) 
 
 Requires Python 3 or higher
+
 ###To install:
+
 ```
 pip install -r requirements.txt
 ```
+
 ###To clone:
+
 ```
 git clone https://github.com/azoght/voting-systems
 ```
@@ -33,15 +62,18 @@ git clone https://github.com/azoght/voting-systems
 __Don't forget to fork and edit the code anyway you wish!__
 
 ## How to
+
 ###Make a ballot
-#####Example:
+
+Example:
 ```python
 candidates = ['A','B','C']
 votes = [1,2,3]
 b = Ballot(candidates,votes)
 ```
 ###Make a ballot registry
-#####Example (Non-randomized):
+
+Example (Non-randomized):
 ```python
 r = BallotRegistry()
 b = Ballot(['A','B','C'],[1,2,3])
@@ -51,7 +83,7 @@ b = Ballot(['A','B','C'],[2,3,1])
 for i in range(5):
     r.addBallot(b)
 ```
-#####Example (Randomized):
+Example (Randomized):
 ```python
 def randomBallotVoteConfiguration(c: []) -> []:
     con = c
@@ -69,6 +101,7 @@ for c in configs:
 ```
 
 ###Make vote count
+
 ```python
 v = VoteCount(r)
 # Voting Methods (return no value, but print winner)
@@ -77,3 +110,7 @@ v.instantRunoff()
 v.bordaCount()
 v.condorcet()
 ```
+##License
+![](https://img.shields.io/badge/license-mpl2.0-blue)
+
+[Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
