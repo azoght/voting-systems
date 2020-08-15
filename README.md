@@ -1,5 +1,7 @@
 # Voting Systems
+![](https://travis-ci.com/azoght/voting-systems.svg?branch=master)
 ![](https://img.shields.io/badge/made%20with-python-gray&color=?color=f50505&style=for-the-badge)
+
 
 Simulates four vote count systems that can used with ranked ballots:
 1. Plurality/Majority
