@@ -1,4 +1,5 @@
 # Voting Systems
+![](https://img.shields.io/badge/made%20with-python-gray&color=?color=f50505&style=for-the-badge)
 
 Simulates four vote count systems that can used with ranked ballots:
 1. Plurality/Majority
@@ -110,6 +111,6 @@ v.condorcet()
 
 ## License
 
-![](https://img.shields.io/badge/license-mpl2.0-blue)
+![](https://img.shields.io/badge/license-mpl2.0-blue&color=?color=2c6ee8)
 
 [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
