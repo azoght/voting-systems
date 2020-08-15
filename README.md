@@ -1,4 +1,4 @@
-#Voting Systems
+# Voting Systems
 
 Simulates four vote count systems that can used with ranked ballots:
 1. Plurality/Majority
@@ -9,7 +9,7 @@ Simulates four vote count systems that can used with ranked ballots:
 You can learn more about these four voting systems here: [**PBS Infinite Series: Voting Systems and the Condorect Paradox**](https://www.youtube.com/watch?v=HoAnYQZrNrQ)
 ![](https://image.pbs.org/video-assets/7GRiDXk-asset-mezzanine-16x9-Ju2FaRu.jpg.focalcrop.1200x630.50.10.jpg)
 
-##How each voting system works
+## How each voting system works
 
 **Plurality:**
 * Most commonly used system, especially for federal elections, and isn't generally ranked-ballot
@@ -44,13 +44,13 @@ You can learn more about these four voting systems here: [**PBS Infinite Series:
 
 Requires Python 3 or higher
 
-###To install:
+### To install:
 
 ```
 pip install -r requirements.txt
 ```
 
-###To clone:
+### To clone:
 
 ```
 git clone https://github.com/azoght/voting-systems
@@ -58,9 +58,9 @@ git clone https://github.com/azoght/voting-systems
 
 __Don't forget to fork and edit the code anyway you wish!__
 
-## How to
+## How to...
 
-###Make a ballot
+### Make a ballot
 
 Example:
 ```python
@@ -68,7 +68,7 @@ candidates = ['A','B','C']
 votes = [1,2,3]
 b = Ballot(candidates,votes)
 ```
-###Make a ballot registry
+### Make a ballot registry
 
 Example (Non-randomized):
 ```python
@@ -97,7 +97,7 @@ for c in configs:
     r.addBallot(Ballot(options, c))
 ```
 
-###Make vote count
+### Make vote count
 
 ```python
 v = VoteCount(r)
@@ -107,7 +107,9 @@ v.instantRunoff()
 v.bordaCount()
 v.condorcet()
 ```
-##License
+
+## License
+
 ![](https://img.shields.io/badge/license-mpl2.0-blue)
 
 [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
