@@ -111,6 +111,6 @@ v.condorcet()
 
 ## License
 
-![](https://img.shields.io/badge/license-mpl2.0-blue&color=?color=2c6ee8)
+![](https://img.shields.io/badge/license-mpl%202.0-blue&color=?color=2c6ee8)
 
 [Mozilla Public License 2.0](https://www.mozilla.org/en-US/MPL/2.0/)
