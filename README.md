@@ -53,6 +53,16 @@ Requires Python 3 or higher
 pip install -r requirements.txt
 ```
 
+### To run without IDE:
+
+Make sure to set PYTHONPATH to where the votingsystems module is at, for example:
+
+```
+ export PYTHONPATH=$PYTHONPATH:.
+
+```
+
+
 ### To clone:
 
 ```
